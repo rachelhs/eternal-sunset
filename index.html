@@ -59,16 +59,22 @@
                     soonest_sunset_name = name;
                 }
             }
+            console.log("updating... finding soonest sunset");
+            console.log("soonest sunset", soonest_sunset);
             let embed = JSON.parse(localStorage.getItem(soonest_sunset_name))[0].URL;
             document.getElementById("sunset-cam").setAttribute('src', embed+'?autoplay=1&mute=1');
+            document.getElementById("sunset-cam").setAttribute('width', window.innerWidth);
+            document.getElementById("sunset-cam").setAttribute('height', window.innerHeight);
         }
+
+        setTimeout(getSunset, 5000);
+        setInterval(getSunset, 50000);
 
     </script>
 </head>
 
 <body>
-    <button onclick=getSunset()>SUNSET</button>
-    <iframe id="sunset-cam" width="560" height="315" frameborder="0"></iframe>
+    <iframe id="sunset-cam" frameborder="0" allowfullscreen></iframe>
 </body>
 
 </html>
