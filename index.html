@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script>
+        // UPDATE LOCALSTORAGER WITH SUNSET TIME FOR CURRENT DAY OF YEAR ON PAGE LOAD
+        window.onload = () => {
+            // read webcam data
+            $.ajax({
+                dataType: "json",
+                type: "get",
+                url: "webcams.json",
+                success: (data) => {
+                    data.forEach((cam) => {
+                        // initialise array for local storage
+                        let cam_data = [];
+                        // turn json to string
+                        let data_serialized = JSON.stringify(cam);
+                        // set name for local storage keys
+                        let name = cam.Name;
+                        // add to local storage
+                        localStorage.setItem(name, data_serialized);
+                        cam_data.push(JSON.parse(localStorage.getItem(name)));
+                        // read latitude and longitude
+                        let latitude = cam.Latitude;
+                        let longitude = cam.Longitude;
+                        // find sunset time - call sunrise-sunset api
+                        $.ajax({
+                            type: "get",
+                            url: 'https://api.sunrise-sunset.org/json',
+                            data: { lat: latitude, lng: longitude, formatted: 0 },
+                            success: (data) => {
+                                // convert sunset time to timestamp
+                                let sunset = Date.parse(data.results.sunset);
+                                // add sunset time to local storage
+                                console.log(name, sunset);
+                                cam_data.push({ 'sunset': sunset });
+                                localStorage.setItem(name, JSON.stringify(cam_data));
+                            }
+                        });
+                    });
+                }
+            });
+        };
+
+        getSunset = () => {
+            const time = Date.now();
+            // find nearest future sunset time
+            let soonest_sunset = 100000000;
+            let soonest_sunset_name = "";
+            // loop through webcams in local storage
+            for (let i = 0; i < localStorage.length; i++) {
+                let name = localStorage.key(i);
+                let sunset = JSON.parse(localStorage.getItem(name))[1].sunset;
+                let time_until_sunset = sunset - time;
+                if (time_until_sunset > 0 && time_until_sunset < soonest_sunset) {
+                    soonest_sunset = time_until_sunset;
+                    soonest_sunset_name = name;
+                }
+            }
+            let embed = JSON.parse(localStorage.getItem(soonest_sunset_name))[0].URL;
+            document.getElementById("sunset-cam").setAttribute('src', embed+'?autoplay=1&mute=1');
+        }
+
+    </script>
+</head>
+
+<body>
+    <button onclick=getSunset()>SUNSET</button>
+    <iframe id="sunset-cam" width="560" height="315" frameborder="0"></iframe>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        // get data from json
+        $(document).ready(function () {
+            $.getJSON("webcams.json", function (data) {
+                const numOfCams = Object.keys(data).length;
+                console.log(numOfCams);
+                for (i = 0; i < numOfCams; i++) {
+                    console.log(data[i].Timezone);
+                    // create a title for each cam with country and timezone
+                    let title = document.createElement("H1");
+                    // grab text from json file
+                    title.innerHTML = `${data[i].Country} | ${data[i].Timezone}`;
+                    // add to dom
+                    document.body.appendChild(title);
+                    // show livestream for each cam
+                    let showCam = document.createElement("IFRAME");
+                    showCam.setAttribute('src', `${data[i].URL}`);
+                    showCam.setAttribute('width', '560');
+                    showCam.setAttribute('height', '315');
+                    showCam.setAttribute('frameborder', '0');
+                    document.body.appendChild(showCam);
+                }
+            }).fail(function () {
+                console.log("An error has occurred.");
+            });
+        });
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

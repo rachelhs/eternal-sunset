@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            console.log('DOM fully loaded and parsed');
+        });
+
+        const getLatandLong = (camNumber) => {
+                // access sunset time API - gives the result in UTC +0 
+                $(document).ready(() => {
+                    $.getJSON("webcams.json", (data) => {
+                        let latitude = data[camNumber].Latitude;
+                        let longitude = data[camNumber].Longitude;
+                    });
+                });
+        };
+
+        const getSunsetTime = (camNumber) => {
+
+            
+                $.ajax({
+                type: 'get',
+                url: 'https://api.sunrise-sunset.org/json',
+                data: { lat: latitude, lng: longitude, formatted: 0 },
+                success: (data) => {
+                    sunset = data.results.sunset;
+                    // get summer time adjustment
+                    const currentDate = new Date();
+                    const currentOffset = currentDate.getTimezoneOffset();
+
+                    if (currentOffset !== 0) {
+                        // add or take away one hour according to summertime adjustments
+                        const sunsetMilliSeconds = Date.parse(sunset);
+                        const sunsetSeconds = (sunsetMilliSeconds / 1000) + (currentOffset * 3600);
+                        const d = new Date(0);
+                        d.setUTCSeconds(sunsetSeconds);
+                        const sunset = d.toISOString();
+                    }
+                    // write sunset time to json file
+                    $(document).ready(() => {
+                        $.getJSON("webcams.json", (data) => {
+                            console.log(data[camNumber]);
+                        });
+                    });
+                }
+                })
+        };
+
+    </script>
+</head>
+
+<body>
+    <button onclick=getSunsetTime(0)>sunset</button>
+</body>
+
+</html>

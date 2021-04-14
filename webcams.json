@@ -1,0 +1,98 @@
+[
+ {
+   "Name": "Killington Resort",
+   "Timezone": "GMT - 5",
+   "Country": "USA",
+   "Latitude": "43.619801",
+   "Longitude": "-72.80271",
+   "URL": "https://www.youtube.com/embed/omVjZZRsrPo"
+ },
+ {
+   "Name": "Four Seasons Hotel Buenos Aires",
+   "Timezone": "GMT - 4",
+   "Country": "Argentina",
+   "Latitude": "-34.5905715",
+   "Longitude": "-58.3825741",
+   "URL": "https://www.youtube.com/embed/if91GyWP3zQ"
+ },
+ {
+   "Name": "GRU Airport Sao Paulo",
+   "Timezone": "GMT - 3",
+   "Country": "Brazil",
+   "Latitude": "-23.437795",
+   "Longitude": "-46.4813205",
+   "URL": "https://www.youtube.com/embed/bmrq8lBr35I"
+ },
+ {
+   "Name": "Brunel Holiday Park Dawlish",
+   "Timezone": "GMT + 0",
+   "Country": "UK",
+   "Latitude": "50.58118",
+   "Longitude": "-3.46644",
+   "URL": "https://www.youtube.com/embed/a6TNIniQw5Y"
+ },
+ {
+   "Name": "Prague Tram",
+   "Timezone": "GMT + 1",
+   "Country": "Prague",
+   "Latitude": "50.0874654",
+   "Longitude": "14.4212535",
+   "URL": "https://www.mall.tv/embed/vlaky-a-tramvaje/mazacka-jizda-prahou?autoplay=true&c=1"
+ },
+ {
+   "Name": "Santa Claus Village",
+   "Timezone": "GMT + 2",
+   "Country": "Finland",
+   "Latitude": "66.54401397705078",
+   "Longitude": "25.847246170043945",
+   "URL": "https://www.youtube.com/embed/Cp4RRAEgpeU"
+ },
+ {
+   "Name": "Kazan Russia",
+   "Timezone": "GMT + 3",
+   "Country": "Russia",
+   "Latitude": "55.7823547",
+   "Longitude": "49.1242266",
+   "URL": "https://www.youtube.com/embed/LVHOEGyKkrw"
+ },
+ {
+   "Name": "Beach Cam Maritius",
+   "Timezone": "GMT + 4",
+   "Country": "Maritius",
+   "Latitude": "-20.5123612",
+   "Longitude": "57.473251",
+   "URL": "https://www.youtube.com/embed/Nqm28breGxs"
+ },
+ {
+   "Name": "Jomsom Nepal",
+   "Timezone": "GMT + 5.45",
+   "Country": "Nepal",
+   "Latitude": "28.7838097",
+   "Longitude": "83.7304953",
+   "URL": "https://www.youtube.com/embed/WgjLxP2sFLk"
+ },
+ {
+   "Name": "Kazakhstan",
+   "Timezone": "GMT + 6",
+   "Country": "Kazakhstan",
+   "Latitude": "51.1282205",
+   "Longitude": "71.4306682",
+   "URL": "https://www.youtube.com/embed/Rc2uhcrLqMI"
+ },
+ {
+   "Name": "Taiwan Road",
+   "Timezone": "GMT + 8",
+   "Country": "Taiwan",
+   "Latitude": "23.9739374",
+   "Longitude": "120.9820179",
+   "URL": "https://www.youtube.com/embed/KucrVvJQj0k"
+ },
+ {
+   "Name": "Mount Fuji",
+   "Timezone": "GMT + 9",
+   "Country": "Japan",
+   "Latitude": "35.362799",
+   "Longitude": "138.730781",
+   "URL": "https://www.youtube.com/embed/WAyDRburhSY"
+ }
+]
