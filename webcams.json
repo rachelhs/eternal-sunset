@@ -166,5 +166,13 @@
    "Latitude": 42.69575,
    "Longitude": 70.70751,
    "URL": "https://www.youtube.com/embed/lw1qn9YlAew"
+ },
+ {
+   "Name": "Akureyri Icelandic Brewery White Ale",
+   "Timezone": "GMT + 0",
+   "Country": "Iceland",
+   "Latitude": 64.14721,
+   "Longitude": -21.9424,
+   "URL": "https://www.youtube.com/embed/34KrXyDCbZo"
  }
 ]
